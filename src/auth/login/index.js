@@ -9,14 +9,24 @@ import {
     Input,
     Item,
     Footer,
-    FooterTab
+    FooterTab,
+    Spinner
 } from "native-base";
+import { observer } from "mobx-react";
+import Store from "../store";
 import styles from "./styles";
+@observer
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
         console.log("this.propsQQQQQQ", this.props);
     }
+
+    loginSuccess() {
+        this.props.screenProps.navigateToHome();
+    }
+
+    loginFailure() {}
     render() {
         return (
             <Container style={{ backgroundColor: "#fff" }}>
@@ -50,11 +60,18 @@ export default class Login extends React.Component {
 
                         <Button
                             onPress={() =>
-                                this.props.screenProps.navigateToHome()}
+                                Store.login(
+                                    this.loginSuccess.bind(this),
+                                    this.loginFailure.bind(this)
+                                )}
                             style={styles.login}
                             full
                         >
-                            <Text style={{ color: "#fff" }}>Sign In</Text>
+                            {Store.isLogging
+                                ? <Spinner color="red" />
+                                : <Text style={{ color: "#fff" }}>
+                                      Sign In
+                                  </Text>}
                         </Button>
 
                         <View style={styles.footerSignInProlem}>

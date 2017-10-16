@@ -1,13 +1,20 @@
 import React from "react";
-import { StackNavigator } from "react-navigation";
-import Home from "./screens";
-export default StackNavigator(
+import { TabNavigator } from "react-navigation";
+import Home from "./screens/home";
+import Find from "./screens/find";
+import Add from "./screens/add";
+import Activity from "./screens/activitySummary";
+import Profile from "./screens/profile";
+export default TabNavigator(
     {
-        Home: { screen: Home }
+        Home: { screen: Home },
+        Find: { screen: Find },
+        Add: { screen: Add },
+        Activity: { screen: Activity },
+        Profile: { screen: Profile }
     },
     {
-        index: 0,
-        initialRouteName: "Home",
-        headerMode: "none"
+        tabBarPosition: "bottom",
+        swipeEnabled: false
     }
 );

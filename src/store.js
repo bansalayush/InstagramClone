@@ -1,7 +1,5 @@
-import {observable} from "mobx";
+import { observable } from "mobx";
 
-class Store {
-    @token = "";
-    
+class Store {}
 
-}
+export default new Store();

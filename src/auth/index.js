@@ -10,9 +10,10 @@ export default class Main extends React.Component {
     navigateToHome() {
         this.props.navigation.navigate("Home");
     }
-
     render() {
-        const screenProps = { navigateToHome: this.navigateToHome };
+        const screenProps = {
+            navigateToHome: this.navigateToHome
+        };
         return <Navigator screenProps={screenProps} />;
     }
 }
