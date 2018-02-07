@@ -5,6 +5,7 @@ import Find from "./screens/find";
 import Add from "./screens/add";
 import Activity from "./screens/activitySummary";
 import Profile from "./screens/profile";
+import NavigationFooter from "./components/footer";
 export default TabNavigator(
     {
         Home: { screen: Home },
@@ -14,6 +15,9 @@ export default TabNavigator(
         Profile: { screen: Profile }
     },
     {
+        tabBarComponent: props => {
+            return <NavigationFooter {...props} />;
+        },
         tabBarPosition: "bottom",
         swipeEnabled: false
     }

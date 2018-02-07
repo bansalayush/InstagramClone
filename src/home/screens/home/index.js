@@ -1,17 +1,20 @@
 import React from "react";
-import { View, Text } from "native-base";
-
+import { StatusBar } from "react-native";
+import { Container, Content, View, Text } from "native-base";
+import PostList from "../../components/postlist";
+import Header from "./component/header";
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
-            <View>
-                <Text style={{ color: "#f00" }}>
-                    {this.constructor.name}
-                </Text>
-            </View>
+            <Container>
+                <Header />
+                <Content>
+                    <PostList />
+                </Content>
+            </Container>
         );
     }
 }
